@@ -1,0 +1,26 @@
+﻿<Window x:Class="_8_Bit_Binary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_8_Bit_Binary"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblTimerDisplay" Content="60" FontSize="28" FontWeight="Bold" HorizontalAlignment="Left" Height="48" Margin="360,18,0,0" VerticalAlignment="Top" Width="102"/>
+        <Button x:Name="Starting" Content="Start" HorizontalAlignment="Left" Height="48" Margin="27,42,0,0" VerticalAlignment="Top" Width="127" Click="StartBtn_click"/>
+        <TextBox x:Name="txt128" HorizontalAlignment="Left" Height="45" Margin="27,151,0,0" TextWrapping="Wrap" Text="128" VerticalAlignment="Top" Width="81" TextChanged="txt128_TextChanged" KeyUp="txt128_KeyUp"/>
+        <TextBox x:Name="txt64" HorizontalAlignment="Left" Height="45" Margin="113,151,0,0" TextWrapping="Wrap" Text="64" VerticalAlignment="Top" Width="81" TextChanged="txt64_TextChanged" KeyUp="txt64_KeyUp"/>
+        <TextBox x:Name="txt32" HorizontalAlignment="Left" Height="45" Margin="199,151,0,0" TextWrapping="Wrap" Text="32" VerticalAlignment="Top" Width="81" TextChanged="txt32_TextChanged" KeyUp="txt32_KeyUp"/>
+        <TextBox x:Name="txt16" HorizontalAlignment="Left" Height="45" Margin="285,151,0,0" TextWrapping="Wrap" Text="16" VerticalAlignment="Top" Width="81" TextChanged="txt16_TextChanged" KeyUp="txt16_KeyUp"/>
+        <TextBox x:Name="txt8" HorizontalAlignment="Left" Height="45" Margin="371,151,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="81" TextChanged="txt8_TextChanged" KeyUp="txt8_KeyUp"/>
+        <TextBox x:Name="txt4" HorizontalAlignment="Left" Height="45" Margin="457,151,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="81" TextChanged="txt4_TextChanged" KeyUp="txt4_KeyUp"/>
+        <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="45" Margin="543,151,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="81" TextChanged="txt2_TextChanged" KeyUp="txt2_KeyUp"/>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="45" Margin="629,151,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="81" TextChanged="txt1_TextChanged" KeyUp="txt1_KeyUp"/>
+        <Button x:Name="PassBtn" Content="Submit" HorizontalAlignment="Left" Height="41" Margin="309,264,0,0" VerticalAlignment="Top" Width="168" Click="SubmitBtn_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="42" Margin="309,83,0,0" Stroke="Black" VerticalAlignment="Top" Width="168"/>
+        <Label x:Name="Given" Content="" HorizontalAlignment="Left" Height="34" Margin="355,83,0,0" VerticalAlignment="Top" Width="40"/>
+
+
+    </Grid>
+</Window>
