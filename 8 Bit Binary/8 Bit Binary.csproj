@@ -8,4 +8,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="175d7aac-b9af-492d-80f9-ace88b04cf1b.jpg" />
+    <None Remove="Game console wallpaper.jpg" />
+    <None Remove="Pixilart - Forest.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="175d7aac-b9af-492d-80f9-ace88b04cf1b.jpg" />
+    <Resource Include="Game console wallpaper.jpg" />
+    <Resource Include="Pixilart - Forest.jpg" />
+  </ItemGroup>
+
 </Project>

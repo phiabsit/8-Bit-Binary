@@ -23,10 +23,12 @@ namespace _8_Bit_Binary
     /// </summary>
     public partial class MainWindow : Window
     {
-        int seconds = 60;
+        int roundnum = 1;
+        int seconds = 30;
         bool _timerStatus = false;
         DispatcherTimer _dt = null;
         string Answer = "";
+        int reduction = 0;
         private Stack<int> bits = new Stack<int>();
 
         public MainWindow()
@@ -35,6 +37,7 @@ namespace _8_Bit_Binary
             _dt = new DispatcherTimer();
             _dt.Tick += _dt_Tick;
             _dt.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            reduction = (int)Math.Ceiling(seconds * 0.066);
         }
 
         private void _dt_Tick(object sender, EventArgs e)
@@ -43,7 +46,11 @@ namespace _8_Bit_Binary
             sec--;
             if (sec == 0)
             {
+                _dt.Stop();
                 MessageBox.Show("You lose");
+                //Leaderboards lb = new Leaderboards();
+                PopUpName PUN = new PopUpName();
+                PUN.Show();
             }
             lblTimerDisplay.Content = sec.ToString();
             //_dt.Start();
@@ -76,63 +83,64 @@ namespace _8_Bit_Binary
 
         public string convertBinary(int numToConvert)
         {
-            string ans = "";
-            
-            //if (numToConvert > 0) { }
+            string binary = "";
 
             while (numToConvert > 0)
             {
-                if (numToConvert % 2 == 1)
-                {
-                    bits.Push(1);
-                    numToConvert--;
-                }
-                else
-                    bits.Push(0);
+                binary = (numToConvert % 2) + binary;
 
-                numToConvert = numToConvert / 2;
+                numToConvert /= 2;
             }
 
-            while (bits.Count != 8)
-                bits.Push(0);
-            return numToConvert.ToString();
+            while (binary.Length < 8) 
+            {
+                binary = "0" + binary;
+            }
+
+            return binary;
         }
-        
+
 
         private void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
             string binarystring = "";
-            binarystring += txt128.Text;
-            binarystring += txt64.Text;
-            binarystring += txt32.Text;
-            binarystring += txt16.Text;
-            binarystring += txt8.Text;
-            binarystring += txt4.Text;
-            binarystring += txt2.Text;
-            binarystring += txt1.Text;
+            binarystring += txt128.Text.Trim();
+            binarystring += txt64.Text.Trim();
+            binarystring += txt32.Text.Trim();
+            binarystring += txt16.Text.Trim();
+            binarystring += txt8.Text.Trim();
+            binarystring += txt4.Text.Trim();
+            binarystring += txt2.Text.Trim();
+            binarystring += txt1.Text.Trim();
             if (binarystring == Answer)
             {
                 SGame();
+                if (roundnum != 11)
+                    seconds -= reduction;
+                lblTimerDisplay.Content = seconds;
+                roundnum++;
+               
             }
             else
             {
                 MessageBox.Show("wrong");
+               
             }
 
-            if (seconds != 11)
-                seconds -= 4;
-            lblTimerDisplay.Content = seconds;
-            GenerateNumber();
+            //if (seconds != 11)
+            //    seconds -= 4;
+            //lblTimerDisplay.Content = seconds;
+            //SGame();
 
         }
 
-       private void GenerateNumber()
+        private void GenerateNumber()
         {
             Random rnd = new Random();
             int number = rnd.Next(1, 256);
             Game(number);
             string binary = "";
-                binary = convertBinary(number);
+            binary = convertBinary(number);
             Answer = binary;
         }
 
@@ -143,42 +151,42 @@ namespace _8_Bit_Binary
 
         private void txt128_TextChanged(object sender, TextChangedEventArgs e)
         {
-           
+
         }
 
         private void txt64_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void txt32_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void txt16_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void txt8_TextChanged(object sender, TextChangedEventArgs e)
         {
-           
+
         }
 
         private void txt4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void txt2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void txt1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void txt128_KeyUp(object sender, KeyEventArgs e)
@@ -276,5 +284,9 @@ namespace _8_Bit_Binary
                 txt1.Text = "0";
             }
         }
+
+
+
     }
 }
+
