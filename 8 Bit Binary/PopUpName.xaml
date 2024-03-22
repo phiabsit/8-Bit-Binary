@@ -12,7 +12,7 @@
         </Grid.Background>
         <Label Content="You Lose!" HorizontalAlignment="Center" Height="78" Margin="0,78,0,0" VerticalAlignment="Top" Width="220" Background="{x:Null}" Foreground="#FFFAF7BD" FontSize="43" FontFamily="Showcard Gothic"/>
         <Label Content="Please input your name: " HorizontalAlignment="Left" Height="83" VerticalAlignment="Center" Width="473" Background="{x:Null}" Foreground="#FFFAF7BD" FontSize="43" FontFamily="Bauhaus 93" Margin="188,0,0,0"/>
-        <TextBox x:Name="UserInput" TextWrapping="Wrap" Text="" Margin="188,259,139,89" Background="{x:Null}" FontSize="34"  FontFamily="Bauhaus 93" TextChanged="TextBox_TextChanged" Foreground="#FFFAF7BD" KeyUp="TextBox_KeyUp" />
+        <TextBox x:Name="UserInput" TextWrapping="Wrap" Text="" Margin="188,259,139,89" Background="#FFCCCAB3" FontSize="34"  FontFamily="Bauhaus 93" TextChanged="TextBox_TextChanged" Foreground="#FF20201F" KeyUp="TextBox_KeyUp" />
 
     </Grid>
 </Window>

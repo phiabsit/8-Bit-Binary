@@ -11,5 +11,8 @@
             <ImageBrush ImageSource="/175d7aac-b9af-492d-80f9-ace88b04cf1b.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Label Content="Leaderboard" HorizontalAlignment="Center" Height="99" Margin="0,61,0,0" Width="306" Background="{x:Null}" Foreground="#FFFAF7BD" FontFamily="Stencil" FontSize="43" VerticalAlignment="Top"/>
+        <ListBox x:Name="LB" HorizontalAlignment="Left" Height="186" Margin="42,160,0,0" VerticalAlignment="Top" Width="213" Foreground="#FF0F0F0F" FontFamily="Bahaus 95" FontSize="24" Background="#FFF0F0C0"  />
+        <ListBox x:Name="Round" HorizontalAlignment="Center" Height="186" Margin="0,160,0,0" VerticalAlignment="Top" Width="213" Foreground="#FF0F0F0F" FontFamily="Bahaus 95" FontSize="24" Background="#FFE0E0A7"  />
+        <ListBox x:Name="LB_Time" HorizontalAlignment="Left" Height="186" Margin="536,160,0,0" VerticalAlignment="Top" Width="220" Foreground="#FF0F0F0F" FontFamily="Bahaus 95" FontSize="24" Background="#FFF0F0C0"  />
     </Grid>
 </Window>

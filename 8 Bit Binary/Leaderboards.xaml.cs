@@ -20,26 +20,53 @@ namespace _8_Bit_Binary
     /// </summary>
     public partial class Leaderboards : Window
     {
+        List<string[]> data = new List<string[]> ();
 
         public Leaderboards()
         {
             InitializeComponent();
-            PopUpName popUpName = new PopUpName();
-            using (StreamWriter sw = new StreamWriter("Name"))
-            {
-                sw.WriteLine(popUpName.PU_name);
-                
-            }
 
-            //using (StreamReader reader = new StreamReader("Binary Search Numbers.csv"))
-            //    if 
-            //    {
-            //        string line = "";
-            //        while ((line = reader.ReadLine()) != null)
-            //        {
-            //            numbers.Add(int.Parse(line));
-            //        }
-            //    }
+            using (StreamReader reader = new StreamReader("LB_Name1.csv"))
+            {
+                string[] Array = new string[] { };
+                string line = "";
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Array = line.Split(',');
+                    if(line != "")
+                    {
+                        data.Add (Array);
+                    }
+                    
+
+                }
+
+                Sort();
+            }
+        }
+
+        private void Sort()
+        {
+            string[] Array = new string[] { };
+            for (int i = 0; i < data.Count; i++)
+            {
+                for (int j = 0; j < data.Count - 1; j++)
+                {
+                    if (int.Parse(data[j][1]) < int.Parse(data[j + 1][1]))
+                    {
+                        Array = data[j];
+                        data[j] = data[j + 1];
+                        data[j + 1] = Array;
+                    }
+                }
+            }
+             for (int i = 0;i < data.Count; i++)
+            {
+                LB.Items.Add(data[i][0]);
+                Round.Items.Add(data[i][1]);
+                LB_Time.Items.Add(data[i][2] + ":" + data[i][3]);
+            }
         }
     }
 }
+

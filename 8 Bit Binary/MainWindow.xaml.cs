@@ -23,9 +23,12 @@ namespace _8_Bit_Binary
     /// </summary>
     public partial class MainWindow : Window
     {
-        int roundnum = 1;
-        int seconds = 30;
+        public static int roundnum = 1;
+        public static int seconds = 30;
         bool _timerStatus = false;
+        public static int varmin = 0;
+        public static int varsec = 0;
+        DispatcherTimer _pt = null;
         DispatcherTimer _dt = null;
         string Answer = "";
         int reduction = 0;
@@ -38,6 +41,26 @@ namespace _8_Bit_Binary
             _dt.Tick += _dt_Tick;
             _dt.Interval = new TimeSpan(0, 0, 0, 1, 0);
             reduction = (int)Math.Ceiling(seconds * 0.066);
+            _pt = new DispatcherTimer();
+            _pt.Tick += _pt_Tick;
+            _pt.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            reduction = (int)Math.Ceiling(seconds * 0.066);
+            _pt.Start();
+        }
+
+        private void _pt_Tick(object sender, EventArgs e)
+        {
+            varsec++;
+            if (varsec > 59)
+            {
+                varmin++;
+                varsec = 0;
+            }
+
+            if (roundnum < -1)
+            {
+                _pt.Stop();
+            }
         }
 
         private void _dt_Tick(object sender, EventArgs e)

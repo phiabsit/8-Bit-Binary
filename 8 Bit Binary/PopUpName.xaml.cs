@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace _8_Bit_Binary
     public partial class PopUpName : Window
     {
         public string PU_name = "";
+        
+        //public string PopUpName = "";
+        //PopUpName popUpName = new PopUpName();
         public PopUpName()
         {
             InitializeComponent();
-
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -35,8 +38,14 @@ namespace _8_Bit_Binary
         {
             if (e.Key == Key.Enter) 
             {
-                Leaderboards lb = new Leaderboards();
+               
                 PU_name = UserInput.Text;
+                using (StreamWriter sw = new StreamWriter("LB_Name1.csv",true))
+                {
+                    sw.WriteLine(PU_name + "," + MainWindow.roundnum + "," + MainWindow.varmin + "," + MainWindow.varsec);
+
+                }
+                Leaderboards lb = new Leaderboards();
                 lb.Show();
             }
         }
